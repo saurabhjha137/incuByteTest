@@ -10,11 +10,16 @@ def add(numbers):
         delimiter = numbers[2]
         numbers = numbers[numbers.index("\n")+1:]
        
+       
     numbers = re.split(f"[{delimiter}\n]", numbers)
-    
+    negatives = [int(num) for num in numbers if int(num) < 0]
+
+    if negatives:
+        raise Exception("Negatives not allowed: " + ", ".join(str(num) for num in negatives))
+
 
     return sum(int(num) for num in numbers if int(num) <= 1000)
 
 
-print(add("//;\n1;2"))
-print(add("1\n2"))
+print(add("-1"))
+#print(add("1\n2"))

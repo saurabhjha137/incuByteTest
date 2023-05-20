@@ -20,7 +20,11 @@ class addNumbersTest(unittest.TestCase):
     def test_custom_delimiter_and_newline(self):
         self.assertEqual(add("//;\n1;2,3\n4"), 10)
         
-        
+    def test_negative_numbers(self):
+        with self.assertRaises(Exception) as context:
+            add("-1")
+        self.assertEqual(str(context.exception), "Negatives not allowed: -1, -3")
+
         
 if __name__ == '__main__':
     unittest.main()
