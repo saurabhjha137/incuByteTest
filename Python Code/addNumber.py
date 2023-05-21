@@ -20,6 +20,3 @@ def add(numbers):
 
     return sum(int(num) for num in numbers if int(num) <= 1000)
 
-
-print(add("-1"))
-#print(add("1\n2"))
